@@ -1,0 +1,36 @@
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "orbitlab"
+version = "0.1.0"
+description = "A modular Newtonian N-body gravitational simulation engine."
+readme = "README.md"
+requires-python = ">=3.11"
+authors = [
+    {name = "OrbitLab contributors"},
+]
+dependencies = [
+    "numpy>=2.0,<3",
+    "matplotlib>=3.8,<4",
+]
+
+[project.optional-dependencies]
+animation = [
+    "Pillow>=10",
+]
+test = [
+    "pytest>=8,<10",
+]
+all = [
+    "Pillow>=10",
+    "pytest>=8,<10",
+]
+
+[tool.setuptools.packages.find]
+include = ["orbitlab*"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+addopts = "-ra"
